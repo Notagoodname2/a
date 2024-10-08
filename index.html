@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Unity Game</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        #game-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .fullscreen-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <iframe id="game-iframe" src="https://class198.github.io/g7/leader-strike" allowfullscreen></iframe>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Go Fullscreen</button>
+    </div>
+
+    <script>
+        function toggleFullscreen() {
+            var iframe = document.getElementById('game-iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
